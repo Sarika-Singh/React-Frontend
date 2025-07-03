@@ -1,0 +1,206 @@
+EP 3
+
+ -  JSX -Its not valid pure Javacript
+ -  JS Engines understands only ECMAScript i.e ES6
+ -  Parcel does the job behind the scenes, JSX code is transpiled.(i.e converted to the code that Javascript understands)
+ -  Done by Parcel - Babel (Parcel uses Babel to transpile JSX to Javascript)
+ -  JSX = HTML Like syntax or XML LIKE syntax
+
+ -  JSX =>Babel transpiles it to  React.createElement => React Element = JS Object => renedered to HTML element(render)
+
+
+- React Comonents :
+    - 1. Functional Components -- NEW way
+    - 2. Class Based Components  -- OLD way
+
+    - React Functional Comonents (Always start the name with Capital letter)  : Normal Javascript dunction which returns some JSX
+
+        const HeadingComponent = () => {
+        return <h>React Funcitonal Component</h>;
+        };
+        const HeadingComponent2 = () => (
+        <h>React Funcitonal Component</h>;
+        );
+
+        both are same.
+
+    - Component Composition : (INcluding a component inside another component)
+        const Title = () => {
+        return (
+            <h1 className="title" tabIndex="3">
+            Learning React using JSX
+            </h1>
+        );
+        };
+        const HeadingComponent = () => (
+        <div id="container">
+            <Title />
+            <h1 className="heading">React Funcitonal Component</h1>;
+        </div>
+        );
+
+
+- we can use normal function (with function keyword)(older way) but we use industry standard new way arrow function.
+
+- In JSX if we use {}  , we can write any piece of javascript code inside it.
+
+- JSX takes care of injection attacks (prevents cross side scripting)(sanitizes every thing in {})
+
+<Title/>
+<Title></Title>
+both are same
+
+- { inside this function cam aslo be called }
+  { Title() } -- same as above 2
+
+
+- what makes app readable : beacause of JSX 
+
+
+
+EP 4 
+
+* For creating any app : (Lets say Food Delivery App)
+FIrst thing :
+1. Planning : 
+    UI , WIREFRAME , FLOW 
+2. What components app can have :
+    - Header
+        - Logo
+        - Nav Items
+    - Body
+        - Search 
+        - RestaurantCOntainer
+            - RestaurantCard
+                - IMG
+                - name
+                - rating
+                - delivery time
+    - Footer
+        - Copyright
+        - Links
+        - Address
+        - Contact
+
+
+
+- CSS : Inline styles , Css modules , Material UI , Tailwind CSS , Seperate CSS file
+- Inline Styles is not a preferred way
+- Styles can also be written in JSX inside {}
+
+
+- PROPS -- (Properties)
+    - Props are just normal arguments to a function
+    - Passing a prop to a component == Passing argument to a function
+    - Used for making Components Dynamic
+    const RestaurantCard = (props) => {} ===> Passing props
+    const RestaurantCard = ({ resName, cuisine }) => {} ==> Destructuring on fly the props
+
+- CONFIG DRIVEN UI : 
+    Websites UI driven by CONFIG
+    Controlling Your UI on basis of Config data
+    i.e for example discount banner may be different for different regions basis on config.
+
+- BEST PRACTICE :
+    resData.data.name --- not a good way destructure it
+    const { cloudinaryImageId, name, cuisines, costForTwo, avgRatingString } =
+    resData?.info;
+    resData?.info === optional chaining
+
+    if there are more data loop it
+    use map js function === best practice
+    example == resList.map((restaurant) => (
+          <RestaurantCard resData={restaurant} />
+        ))
+        array.map(each index data => (return data))
+
+- Keys in React Component :
+    - keys are imp property and very important
+    - If keys are not present React will re-render all data.
+    - If key is present for example 4 data is rendered and new data comes it will only render the new added data.
+
+    - Some people uses index as the key (BUT REACT itself says do not use indexs as KEYS -bad practice)
+    - why index cannot be used as a key -- if the order change or new data comes-- issue persist. 
+    - use any unique key coming from api (Best practice)
+
+
+EP 5 
+
+- Make Seperate Files for seperate components (Best Practice)
+
+- Folder Structure :
+React doesn’t have opinions on how you put files into folders. 
+Eg: Grouping by Feature or Grouping by File type.
+Depends on you just avoid too much nesting.
+
+Basic standard :
+
+ - src --- main Folder(all source code here)
+    - components
+        - Header.js (some write js,jsx,tsx) -- does not matter much
+
+
+
+
+- For using any component into App.js :
+    We need to import it, but first we need to export it in that file.
+
+    While importing import Header from "./components/Header";
+    some write import Header from "./components/Header.js";
+    if we do not write extentions still it works
+
+
+- Never add or keep any hard coded data in your App.js and any of the Component Files never.
+    Common Practice is to keep a seperate file for hard coded data.
+    For example in utils folders
+        - utils
+            -constants.js
+
+
+- Two types of import export
+
+    - Default Export/Import
+        export deafult Component;
+        import Component from "path;
+
+    - Named Export/Import -- For multiple things.
+        export const Component;
+        import {Component} from "path";
+
+- Standard Practice
+    Keep Component file below 100 lines not more than that.
+
+- Why react is fast :
+    - Faster Dom replacement
+    - DOM operations superfast
+    - Good at DOM operations and manipulations
+    - Efficient DOM manipulation using Virtual DOM
+
+
+Event Handler :
+
+    Suppose want to do some onCLick : 
+    onClick={()=>{console.log()}}
+
+Hooks : 
+    React Hook -- Just a normal JS function (IT comes with some kind of code(powers))
+    Normal Utility Function
+    If you have to superpower to variable we use Hooks
+    - Multiple Hook :
+        - Two Very Imp Hooks :
+            - useState()  - Superpowerful State Variables. 
+            - useEffect()
+
+    Whenever a state variable changes React re-renders the component.
+
+React uses :
+ Reconciliation Algorithm (React Fiber) - React 16
+ 
+    
+
+
+
+
+
+
+
