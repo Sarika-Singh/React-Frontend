@@ -183,7 +183,7 @@ Event Handler :
     onClick={()=>{console.log()}}
 
 Hooks : 
-    React Hook -- Just a normal JS function (IT comes with some kind of code(powers))
+    React Hook -- Just a normal JS function (IT comes with some kind of code(powers) -- Its own specific function/purpose)
     Normal Utility Function
     If you have to superpower to variable we use Hooks
     - Multiple Hook :
@@ -195,7 +195,46 @@ Hooks :
 
 React uses :
  Reconciliation Algorithm (React Fiber) - React 16
- 
+
+
+ EP 6
+
+ Monolith Arcitechture - OLD (All in one)
+ Microservice Arcitechture - NEW (diff services)
+
+ Fetching Data :
+    - Two Approaches 
+        - When App Loads --> Make an api call ---> When get the data render UI ----> When loads till APi is hit page will be blank
+        - When App Loads --> Render UI --> APi Call -->After response Re-render ----> Better approach --> As skeleton is rendered -->After response it re-renders -- > better UX.
+
+    For calling api -- 
+        - useEffect()
+
+
+If calling api from one origin to another origin and browsers blocks it then it is calling CORS origin POLICY.
+
+For response or data :
+json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle
+use  ? i.e Optional Chaining --- Good way to use data
+
+
+Industry Standard :
+
+Shimmer UI -- Load fake page until actual data from Api comes.
+
+- Conditional Rendering
+    Rendering on basis of condition
+     eg :  if (listOfRestaurants.length === 0) {
+                return <Shimmer />;
+            }
+
+- Javascript variable does not work in case where you want to change variables and re-render hence local state variables are used.
+
+- Whenever state variable update, react triggers reconcilation cycle(re-render components)
+
+-- Reconciliation Algorithm makes React Faster (New Algorithm React FIber)
+
+-- If do no want to use CORS extension use site CORS PROXY.io add url.
     
 
 
