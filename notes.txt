@@ -235,6 +235,27 @@ Shimmer UI -- Load fake page until actual data from Api comes.
 -- Reconciliation Algorithm makes React Faster (New Algorithm React FIber)
 
 -- If do no want to use CORS extension use site CORS PROXY.io add url.
+
+
+EP 7
+
+useEffect()
+    - Takes 2 params -- first callback function , second dependency array
+    - useEffect is called after every time the component renders.
+    - If we do not pass dependency array ==> useEffect is called on every component render.
+    - If we pass empty dependency array ===> useEffect is called on only initial render just once.
+    - If we pass something in dependency array ==> then useEffect is called only when dependency changes.
+
+useState() 
+ - Never call useState outside function Component
+ - Try to always use on the top
+ - Never create useState inside if else blocks (or any conditions) nor inside for loops nor inside function  -- Inconsistent
+ 
+
+ Routing :
+    Library -- React Router DOM
+    On App.js -- Need to create Routing Configuration
+
     
 
 
